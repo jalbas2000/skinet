@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { IDeliveryMethod } from './../shared/models/deliveryMethod';
 import { map } from 'rxjs/operators';
 import { IBasket, IBasketItem, Basket, IBasketTotals } from './../shared/models/basket';
@@ -10,7 +11,7 @@ import { IProduct } from '../shared/models/product';
   providedIn: 'root'
 })
 export class BasketService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
   private basketSource = new BehaviorSubject<IBasket>(null);
   basket$ = this.basketSource.asObservable();
   private basketTotalSource = new BehaviorSubject<IBasketTotals>(null);

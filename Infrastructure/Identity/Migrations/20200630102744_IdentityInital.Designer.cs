@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Identity.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20200614130239_IdentityInitial")]
-    partial class IdentityInitial
+    [Migration("20200630102744_IdentityInital")]
+    partial class IdentityInital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

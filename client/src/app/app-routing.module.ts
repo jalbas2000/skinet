@@ -1,3 +1,4 @@
+import { AdminGuard } from './core/guards/admin.guard';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 import { HomeComponent } from './home/home.component';
@@ -20,6 +21,8 @@ const routes: Routes = [
     canActivate: [AuthGuard], loadChildren: () => import('./orders/orders.module').then(mod => mod.OrdersModule),  data: {breadcrumb: 'Orders'}},
   {path: 'account', loadChildren: () => import('./account/account.module')
     .then(mod => mod.AccountModule), data: {breadcrumb: {skip: true}}},
+  {path: 'admin', canActivate: [AuthGuard, AdminGuard],
+    loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule),  data: {breadcrumb: 'Admin'}},
   {path: '**', redirectTo: 'not-found', pathMatch: 'full'}
 ];
 
